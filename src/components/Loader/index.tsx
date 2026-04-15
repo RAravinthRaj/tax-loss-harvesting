@@ -21,7 +21,7 @@ type LottieAnimationProps = Omit<
 >;
 
 const LottieAnimation = (props: LottieAnimationProps) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const { $useModalLoader, ...restProps } = props;
 
   return (
@@ -42,7 +42,7 @@ export const Loader = ({
   loadingText = "Request in progress.\nPlease wait...",
   useModalLoader = false,
 }: ILoader) => {
-  const theme = useTheme();
+  const { theme } = useTheme();
   const [visible, setVisible] = useState(true);
 
   if (useModalLoader) {
@@ -55,7 +55,7 @@ export const Loader = ({
         aria-labelledby="contained-modal-title-vcenter"
         centered
       >
-        <S.ModalInnerContainer $bgColor={theme.colors.white}>
+        <S.ModalInnerContainer $bgColor={theme.colors.bgSection}>
           <LazyLottieAnimation loop play $useModalLoader={useModalLoader} />
           <S.LoadingText $useModalLoader={useModalLoader}>
             {loadingText}

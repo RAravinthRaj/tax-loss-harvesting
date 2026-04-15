@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 export const PageShell = styled.div`
   min-height: 100vh;
-  background: #0b0d14;
+  background: ${(props) => props.theme.colors.bgApp};
 `;
 
 export const TopBar = styled.header`
   height: 48px;
-  background: #181b27;
+  background: ${(props) => props.theme.colors.bgContainer};
   display: flex;
   align-items: center;
   padding: 0 52px;
@@ -19,25 +19,25 @@ export const TopBar = styled.header`
 `;
 
 export const Brand = styled.div`
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   font-weight: 800;
   font-size: 18px;
   letter-spacing: 0.2px;
 
   span:first-child {
-    color: #2878ff;
+    color: ${(props) => props.theme.colors.linkText};
   }
 
   span:last-child {
-    color: #f4a51c;
+    color: ${(props) => props.theme.colors.iconColor};
   }
 `;
 
 export const Content = styled(Container)`
-  padding: 32px 40px 40px;
+  padding: 10px;
 
-  @media (max-width: 768px) {
-    padding: 24px 18px 28px;
+  @media (max-width: 576px) {
+    padding: 20px;
   }
 `;
 
@@ -47,17 +47,24 @@ export const PageHeader = styled.div`
   gap: 10px;
   margin-bottom: 10px;
   flex-wrap: wrap;
+  justify-content: space-between;
+`;
+
+export const PageSubHeader = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 10px;
 `;
 
 export const PageTitle = styled.h1`
   margin: 0;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   font-size: 18px;
   font-weight: 700;
 `;
 
 export const PageLink = styled.a`
-  color: #4f89ff;
+  color: ${(props) => props.theme.colors.accentPrimary};
   font-size: 12px;
   text-decoration: underline;
 `;
@@ -73,12 +80,12 @@ export const StateContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   text-align: center;
 `;
 
 export const ErrorCard = styled.div`
-  background: #1a1d2a;
+  background: ${(props) => props.theme.colors.bgSection};
   border: 1px solid rgba(255, 106, 135, 0.45);
   border-radius: 12px;
   padding: 24px;
@@ -89,7 +96,7 @@ export const RetryButton = styled.button`
   margin-top: 14px;
   border: none;
   border-radius: 8px;
-  background: #2878ff;
+  background: ${(props) => props.theme.colors.linkText};
   color: #ffffff;
   padding: 10px 16px;
   font-weight: 600;

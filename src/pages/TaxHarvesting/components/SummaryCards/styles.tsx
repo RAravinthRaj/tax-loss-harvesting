@@ -16,14 +16,21 @@ export const Card = styled.section<{ $variant: "dark" | "blue" }>`
   padding: 18px 18px 16px;
   background: ${(props) =>
     props.$variant === "blue"
-      ? "linear-gradient(135deg, #5fb0ff 0%, #2076ff 45%, #0762ff 100%)"
-      : "#1a1d2a"};
+      ? props.theme.colors.summaryCardBg
+      : props.theme.colors.bgSection};
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+
+  --card-text: ${(props) =>
+    props.$variant === "blue" ? "#ffffff" : props.theme.colors.textPrimary};
+  --card-text-muted: ${(props) =>
+    props.$variant === "blue"
+      ? "rgba(255, 255, 255, 0.78)"
+      : props.theme.colors.textSecondary};
 `;
 
 export const CardTitle = styled.h2`
   margin: 0 0 18px;
-  color: #ffffff;
+  color: var(--card-text);
   font-size: 18px;
   font-weight: 700;
 `;
@@ -33,7 +40,7 @@ export const SummaryTable = styled.div`
   grid-template-columns: minmax(120px, 1fr) 120px 120px;
   row-gap: 10px;
   column-gap: 14px;
-  color: #ffffff;
+  color: var(--card-text);
 
   @media (max-width: 480px) {
     grid-template-columns: minmax(100px, 1fr) 88px 88px;
@@ -43,18 +50,18 @@ export const SummaryTable = styled.div`
 `;
 
 export const TableHeading = styled.div`
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--card-text-muted);
   font-size: 13px;
   text-align: right;
 `;
 
 export const Label = styled.div`
-  color: #ffffff;
+  color: var(--card-text);
   font-size: 15px;
 `;
 
 export const Value = styled.div`
-  color: #ffffff;
+  color: var(--card-text);
   text-align: right;
   font-size: 15px;
 `;
@@ -73,13 +80,13 @@ export const Footer = styled.div`
 `;
 
 export const FooterLabel = styled.div`
-  color: #ffffff;
+  color: var(--card-text);
   font-size: 16px;
   font-weight: 700;
 `;
 
 export const FooterValue = styled.div`
-  color: #ffffff;
+  color: var(--card-text);
   font-size: 40px;
   font-weight: 800;
   line-height: 1;
@@ -91,7 +98,7 @@ export const FooterValue = styled.div`
 
 export const Savings = styled.div`
   margin-top: 18px;
-  color: #ffffff;
+  color: var(--card-text);
   font-size: 14px;
   display: flex;
   align-items: center;

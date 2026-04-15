@@ -44,7 +44,7 @@ export const LottieLoader = styled(Lottie)<{ $useModalLoader: boolean }>`
 
 export const LoadingText = styled.div<{ $useModalLoader: boolean }>`
   margin: ${(props) => (props?.$useModalLoader ? "0 0 0 10px" : "-50px 0 0 0")};
-  background-color: "#ffffff";
+  color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;

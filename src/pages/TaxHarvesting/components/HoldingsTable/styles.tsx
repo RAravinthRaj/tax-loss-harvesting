@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Section = styled.section`
-  background: #1a1d2a;
+  background: ${(props) => props.theme.colors.bgSection};
   border-radius: 12px;
   padding: 14px 12px 12px;
 `;
@@ -16,13 +16,13 @@ export const SectionHeader = styled.div`
 
 export const Title = styled.h2`
   margin: 0;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   font-size: 18px;
   font-weight: 700;
 `;
 
 export const CountBadge = styled.span`
-  color: #9aa6d1;
+  color: ${(props) => props.theme.colors.textSecondary};
   font-size: 12px;
 `;
 
@@ -52,11 +52,11 @@ export const Column = styled.col`
 `;
 
 export const HeadRow = styled.tr`
-  background: #0f121b;
+  background: ${(props) => props.theme.colors.bgHeaderRow};
 `;
 
 export const HeaderCell = styled.th`
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   font-size: 13px;
   font-weight: 500;
   text-align: left;
@@ -72,13 +72,14 @@ export const HeaderCell = styled.th`
     text-align: right;
   }
 
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
 `;
 
 export const SortButton = styled.button<{ $active: boolean }>`
   background: transparent;
   border: none;
-  color: ${(props) => (props.$active ? "#ffffff" : "#d7defa")};
+  color: ${(props) => (props.$active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
   padding: 0;
   width: 100%;
   display: inline-flex;
@@ -88,11 +89,12 @@ export const SortButton = styled.button<{ $active: boolean }>`
   cursor: pointer;
   font-size: 13px;
   font-weight: 500;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: left;
 `;
 
 export const SortArrow = styled.span<{ $direction: "asc" | "desc" }>`
-  color: #ff5c74;
+  color: ${(props) => props.theme.colors.accentSort};
   font-size: 12px;
   line-height: 1;
   transform: rotate(
@@ -102,14 +104,14 @@ export const SortArrow = styled.span<{ $direction: "asc" | "desc" }>`
 `;
 
 export const Row = styled.tr<{ $selected: boolean }>`
-  background: ${(props) => (props.$selected ? "#212d56" : "transparent")};
-  box-shadow: inset 0 -1px 0 rgba(98, 109, 148, 0.35);
+  background: ${(props) => (props.$selected ? props.theme.colors.bgSelectedRow : "transparent")};
+  box-shadow: inset 0 -1px 0 ${(props) => props.theme.colors.divider};
   position: relative;
 `;
 
 export const Cell = styled.td<{ $alignRight?: boolean }>`
   padding: 14px 12px;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   vertical-align: top;
   text-align: ${(props) => (props.$alignRight ? "right" : "left")};
   overflow: visible;
@@ -118,7 +120,7 @@ export const Cell = styled.td<{ $alignRight?: boolean }>`
 export const Checkbox = styled.input`
   width: 16px;
   height: 16px;
-  accent-color: #4f89ff;
+  accent-color: ${(props) => props.theme.colors.accentPrimary};
   cursor: pointer;
 `;
 
@@ -138,7 +140,7 @@ export const Logo = styled.img`
 `;
 
 export const PrimaryText = styled.div`
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
@@ -148,7 +150,7 @@ export const PrimaryText = styled.div`
 `;
 
 export const SecondaryText = styled.div`
-  color: #9aa6d1;
+  color: ${(props) => props.theme.colors.textSecondary};
   font-size: 11px;
   margin-top: 3px;
   line-height: 1.3;
@@ -158,7 +160,7 @@ export const SecondaryText = styled.div`
 `;
 
 export const GainText = styled.div<{ $positive: boolean }>`
-  color: ${(props) => (props.$positive ? "#30e1a1" : "#ff6a87")};
+  color: ${(props) => (props.$positive ? props.theme.colors.accentGain : props.theme.colors.accentLoss)};
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
@@ -180,7 +182,7 @@ export const RightValueStack = styled(ValueStack)`
 `;
 
 export const AmountText = styled.span<{ $active: boolean }>`
-  color: ${(props) => (props.$active ? "#ffffff" : "#9aa6d1")};
+  color: ${(props) => (props.$active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
   font-size: 14px;
   cursor: ${(props) => (props.$active ? "help" : "default")};
   white-space: nowrap;
@@ -193,7 +195,7 @@ export const Footer = styled.div`
 export const ViewAllButton = styled.button`
   background: transparent;
   border: none;
-  color: #4f89ff;
+  color: ${(props) => props.theme.colors.accentPrimary};
   font-size: 14px;
   padding: 0;
   text-decoration: underline;

@@ -1,5 +1,6 @@
 import { ComputedCapitalGains } from "../../../../types";
 import { formatCurrency } from "../../../../utils";
+import { TEXTS } from "../../config";
 import * as S from "./styles";
 
 interface ISummaryCards {
@@ -27,18 +28,18 @@ const SummaryCard = ({
       <S.CardTitle>{title}</S.CardTitle>
       <S.SummaryTable>
         <div />
-        <S.TableHeading>Short-term</S.TableHeading>
-        <S.TableHeading>Long-term</S.TableHeading>
+        <S.TableHeading>{TEXTS.summary.shortTerm}</S.TableHeading>
+        <S.TableHeading>{TEXTS.summary.longTerm}</S.TableHeading>
 
-        <S.Label>Profits</S.Label>
+        <S.Label>{TEXTS.summary.profits}</S.Label>
         <S.Value>{formatCurrency(data.stcg.profits)}</S.Value>
         <S.Value>{formatCurrency(data.ltcg.profits)}</S.Value>
 
-        <S.Label>Losses</S.Label>
+        <S.Label>{TEXTS.summary.losses}</S.Label>
         <S.Value>{formatCurrency(-data.stcg.losses)}</S.Value>
         <S.Value>{formatCurrency(-data.ltcg.losses)}</S.Value>
 
-        <S.Label>Net Capital Gains</S.Label>
+        <S.Label>{TEXTS.summary.netCapitalGains}</S.Label>
         <S.Value>{formatCurrency(data.stcg.net)}</S.Value>
         <S.Value>{formatCurrency(data.ltcg.net)}</S.Value>
       </S.SummaryTable>
@@ -49,7 +50,9 @@ const SummaryCard = ({
       </S.Footer>
 
       {showSavings && savings && savings > 0 ? (
-        <S.Savings>🎉 You are going to save upto {formatCurrency(savings)}</S.Savings>
+        <S.Savings>
+          🎉 {TEXTS.summary.savingUpto} {formatCurrency(savings)}
+        </S.Savings>
       ) : null}
     </S.Card>
   );
@@ -61,16 +64,16 @@ export const SummaryCards = ({ before, after }: ISummaryCards) => {
   return (
     <S.CardsGrid>
       <SummaryCard
-        title="Pre Harvesting"
+        title={TEXTS.summary.preHarvesting}
         data={before}
         variant="dark"
-        totalLabel="Realised Capital Gains:"
+        totalLabel={TEXTS.summary.realisedCapitalGains}
       />
       <SummaryCard
-        title="After Harvesting"
+        title={TEXTS.summary.afterHarvesting}
         data={after}
         variant="blue"
-        totalLabel="Effective Capital Gains:"
+        totalLabel={TEXTS.summary.effectiveCapitalGains}
         showSavings={savings > 0}
         savings={savings}
       />

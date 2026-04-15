@@ -1,5 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { Loader } from "../../components";
+import { useTheme } from "../../hooks";
 import { computeCapitalGains } from "../../utils";
 import {
   ContainerComp,
@@ -10,6 +11,7 @@ import {
   Tooltip,
 } from "./components";
 import * as S from "./components/ContainerComp/styles";
+import { TEXTS } from "./config";
 import {
   fetchTaxHarvestingData,
   makeHoldingId,
@@ -18,9 +20,11 @@ import {
   useAppDispatch,
   useAppSelector,
 } from "./stores";
+import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
 
 const TaxHarvestingContent = () => {
   const dispatch = useAppDispatch();
+  const { mode, toggleTheme, theme } = useTheme();
   const { loading, error, holdings, capitalGains, selectedHoldingIds } =
     useAppSelector((state) => state.taxHarvesting);
 
@@ -31,9 +35,9 @@ const TaxHarvestingContent = () => {
   const selectedHoldings = useMemo(
     () =>
       holdings.filter((holding, index) =>
-        selectedHoldingIds.includes(makeHoldingId(holding, index))
+        selectedHoldingIds.includes(makeHoldingId(holding, index)),
       ),
-    [holdings, selectedHoldingIds]
+    [holdings, selectedHoldingIds],
   );
 
   const beforeHarvesting = useMemo(() => {
@@ -76,10 +80,37 @@ const TaxHarvestingContent = () => {
   return (
     <S.Stack>
       <S.PageHeader>
-        <S.PageTitle>Tax Harvesting</S.PageTitle>
-        <Tooltip content="Select holdings with gains or losses to preview post-harvesting capital gains.">
-          <S.PageLink href="#how-it-works">How it works?</S.PageLink>
-        </Tooltip>
+        <S.PageSubHeader>
+          <S.PageTitle>{TEXTS.header.title}</S.PageTitle>
+          <Tooltip content={TEXTS.header.howItWorksTooltip}>
+            <S.PageLink href="#how-it-works">
+              {TEXTS.header.howItWorks}
+            </S.PageLink>
+          </Tooltip>
+        </S.PageSubHeader>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <button
+            onClick={toggleTheme}
+            style={{
+              background: "transparent",
+              border: `1px solid ${mode === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)"}`,
+              color: mode === "dark" ? theme.colors.iconColor : theme.colors.accentPrimary,
+              width: "40px",
+              height: "40px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "50%",
+              cursor: "pointer",
+              fontSize: "22px",
+              padding: 0,
+            }}
+            aria-label="Toggle Theme"
+          >
+            {mode === "dark" ? <IoSunnyOutline /> : <IoMoonOutline />}
+          </button>
+        </div>
       </S.PageHeader>
 
       <Disclaimer />

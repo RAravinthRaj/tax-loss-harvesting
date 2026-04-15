@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const DisclaimerContainer = styled.div`
   width: 100%;
-  background: rgba(20, 34, 79, 0.86);
-  border: 1px solid #335dca;
+  background: ${(props) => props.theme.colors.bgSelectedRow};
+  border: 1px solid ${(props) => props.theme.colors.borderDisclaimer};
   border-radius: 10px;
   overflow: hidden;
 `;
@@ -11,7 +11,7 @@ export const DisclaimerContainer = styled.div`
 export const DisclaimerHeader = styled.button`
   width: 100%;
   background: transparent;
-  color: #ffffff;
+  color: ${(props) => props.theme.colors.textPrimary};
   border: none;
   padding: 14px 16px;
   display: flex;
@@ -34,8 +34,8 @@ export const InfoIcon = styled.span`
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 1px solid #6d96ff;
-  color: #6d96ff;
+  border: 1px solid ${(props) => props.theme.colors.accentPrimary};
+  color: ${(props) => props.theme.colors.accentPrimary};
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -51,14 +51,16 @@ export const Chevron = styled.span<{ $expanded: boolean }>`
 export const DisclaimerBody = styled.div<{ $expanded: boolean }>`
   max-height: ${(props) => (props.$expanded ? "280px" : "0")};
   opacity: ${(props) => (props.$expanded ? 1 : 0)};
-  transition: max-height 0.28s ease, opacity 0.2s ease;
-  overflow: hidden;
+  transition:
+    max-height 0.28s ease,
+    opacity 0.2s ease;
+  overflow-y: auto;
 `;
 
 export const DisclaimerList = styled.ul`
   margin: 0;
   padding: 0 22px 16px 34px;
-  color: #d8def8;
+  color: ${(props) => props.theme.colors.textSecondary};
   font-size: 14px;
   line-height: 1.75;
 `;
