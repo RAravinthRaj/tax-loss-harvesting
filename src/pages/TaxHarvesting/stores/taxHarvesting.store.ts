@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { CapitalGains, Holding } from "../../../types";
 import TaxHarvestingService from "../services";
@@ -14,7 +21,7 @@ export const fetchTaxHarvestingData = createAsyncThunk(
       holdings,
       capitalGains: capitalGainsResponse.capitalGains,
     };
-  }
+  },
 );
 
 interface TaxHarvestingState {

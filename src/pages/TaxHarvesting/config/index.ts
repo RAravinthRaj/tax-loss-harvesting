@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 export const DISCLAIMER_POINTS = [
   "Tax-loss harvesting is currently not allowed under Indian tax regulations. Please consult your tax advisor before making any decisions.",
   "Tax harvesting does not apply to derivatives or futures. These are handled separately as business income under tax rules.",
@@ -27,7 +34,7 @@ export const TEXTS = {
     effectiveCapitalGains: "Effective Capital Gains:",
     savingUpto: "You are going to save upto",
     shortTerm: "Short-term",
-    longTerm: "Long-term"
+    longTerm: "Long-term",
   },
   table: {
     title: "Holdings",
@@ -41,5 +48,5 @@ export const TEXTS = {
     colAmountToSell: "Amount to Sell",
     viewAll: "View all",
     viewLess: "View less",
-  }
+  },
 };

@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 import { useEffect, useMemo } from "react";
 import { Loader } from "../../components";
 import { useTheme } from "../../hooks";
@@ -95,7 +102,10 @@ const TaxHarvestingContent = () => {
             style={{
               background: "transparent",
               border: `1px solid ${mode === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.1)"}`,
-              color: mode === "dark" ? theme.colors.iconColor : theme.colors.accentPrimary,
+              color:
+                mode === "dark"
+                  ? theme.colors.iconColor
+                  : theme.colors.accentPrimary,
               width: "40px",
               height: "40px",
               display: "flex",

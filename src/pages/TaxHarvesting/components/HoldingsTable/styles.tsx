@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 import styled from "styled-components";
 
 export const Section = styled.section`
@@ -79,7 +86,10 @@ export const HeaderCell = styled.th`
 export const SortButton = styled.button<{ $active: boolean }>`
   background: transparent;
   border: none;
-  color: ${(props) => (props.$active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  color: ${(props) =>
+    props.$active
+      ? props.theme.colors.textPrimary
+      : props.theme.colors.textSecondary};
   padding: 0;
   width: 100%;
   display: inline-flex;
@@ -104,7 +114,8 @@ export const SortArrow = styled.span<{ $direction: "asc" | "desc" }>`
 `;
 
 export const Row = styled.tr<{ $selected: boolean }>`
-  background: ${(props) => (props.$selected ? props.theme.colors.bgSelectedRow : "transparent")};
+  background: ${(props) =>
+    props.$selected ? props.theme.colors.bgSelectedRow : "transparent"};
   box-shadow: inset 0 -1px 0 ${(props) => props.theme.colors.divider};
   position: relative;
 `;
@@ -160,7 +171,10 @@ export const SecondaryText = styled.div`
 `;
 
 export const GainText = styled.div<{ $positive: boolean }>`
-  color: ${(props) => (props.$positive ? props.theme.colors.accentGain : props.theme.colors.accentLoss)};
+  color: ${(props) =>
+    props.$positive
+      ? props.theme.colors.accentGain
+      : props.theme.colors.accentLoss};
   font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
@@ -182,7 +196,10 @@ export const RightValueStack = styled(ValueStack)`
 `;
 
 export const AmountText = styled.span<{ $active: boolean }>`
-  color: ${(props) => (props.$active ? props.theme.colors.textPrimary : props.theme.colors.textSecondary)};
+  color: ${(props) =>
+    props.$active
+      ? props.theme.colors.textPrimary
+      : props.theme.colors.textSecondary};
   font-size: 14px;
   cursor: ${(props) => (props.$active ? "help" : "default")};
   white-space: nowrap;

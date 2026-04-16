@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 export const formatCurrency = (value: number) =>
   new Intl.NumberFormat("en-US", {
     style: "currency",
@@ -6,9 +13,7 @@ export const formatCurrency = (value: number) =>
   }).format(value);
 
 export const formatSignedCurrency = (value: number) =>
-  `${value > 0 ? "+" : value < 0 ? "-" : ""}${formatCurrency(
-    Math.abs(value)
-  )}`;
+  `${value > 0 ? "+" : value < 0 ? "-" : ""}${formatCurrency(Math.abs(value))}`;
 
 export const formatCompactAmount = (value: number) => {
   if (value === 0) {

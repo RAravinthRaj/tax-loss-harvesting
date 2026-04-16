@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 import {
   Dispatch,
   ReactNode,
@@ -58,7 +65,7 @@ export const TaxHarvestingUIProvider = ({
 
       setSortDirection("asc");
     },
-    [sortDirection, sortField]
+    [sortDirection, sortField],
   );
 
   const value = useMemo(
@@ -71,7 +78,7 @@ export const TaxHarvestingUIProvider = ({
       sortDirection,
       toggleSort,
     }),
-    [notesExpanded, showAllRows, sortField, sortDirection, toggleSort]
+    [notesExpanded, showAllRows, sortField, sortDirection, toggleSort],
   );
 
   return (
@@ -86,7 +93,7 @@ export const useTaxHarvestingUI = () => {
 
   if (!context) {
     throw new Error(
-      "useTaxHarvestingUI must be used within TaxHarvestingUIProvider"
+      "useTaxHarvestingUI must be used within TaxHarvestingUIProvider",
     );
   }
 

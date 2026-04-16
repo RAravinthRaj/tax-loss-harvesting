@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 import { Container } from "react-bootstrap";
 import styled from "styled-components";
 
@@ -34,7 +41,7 @@ export const Brand = styled.div`
 `;
 
 export const Content = styled(Container)`
-  padding: 10px;
+  padding: 20px;
 
   @media (max-width: 576px) {
     padding: 20px;

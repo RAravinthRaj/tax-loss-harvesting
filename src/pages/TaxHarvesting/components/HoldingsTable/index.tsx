@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 import { useMemo } from "react";
 import { Holding } from "../../../../types";
 import {
@@ -46,7 +53,9 @@ const HoldingsTableHeader = ({
       <S.HeaderCell>
         {TEXTS.table.colHoldings}
         <br />
-        <span style={{ fontSize: "11px", fontWeight: "normal", color: "#9aa6d1" }}>
+        <span
+          style={{ fontSize: "11px", fontWeight: "normal", color: "#9aa6d1" }}
+        >
           {TEXTS.table.colMarketRate}
         </span>
       </S.HeaderCell>
@@ -114,25 +123,37 @@ const HoldingsTableRow = ({
         </S.AssetCell>
       </S.Cell>
       <S.Cell>
-        <Tooltip content={`Full holding amount: ${formatFullAmount(holding.totalHolding)}`}>
+        <Tooltip
+          content={`Full holding amount: ${formatFullAmount(holding.totalHolding)}`}
+        >
           <S.ValueStack>
             <S.PrimaryText>
               {formatCompactAmount(holding.totalHolding)} {holding.coin}
             </S.PrimaryText>
-            <S.SecondaryText>{formatCurrency(holding.averageBuyPrice)}/{holding.coin}</S.SecondaryText>
+            <S.SecondaryText>
+              {formatCurrency(holding.averageBuyPrice)}/{holding.coin}
+            </S.SecondaryText>
           </S.ValueStack>
         </Tooltip>
       </S.Cell>
       <S.Cell>
-        <Tooltip content={`Total value: ${formatCurrency(holding.currentPrice * holding.totalHolding)}`}>
+        <Tooltip
+          content={`Total value: ${formatCurrency(holding.currentPrice * holding.totalHolding)}`}
+        >
           <S.ValueStack>
-            <S.PrimaryText>{formatCurrency(holding.currentPrice * holding.totalHolding)}</S.PrimaryText>
-            <S.SecondaryText>{formatCurrency(holding.currentPrice)}</S.SecondaryText>
+            <S.PrimaryText>
+              {formatCurrency(holding.currentPrice * holding.totalHolding)}
+            </S.PrimaryText>
+            <S.SecondaryText>
+              {formatCurrency(holding.currentPrice)}
+            </S.SecondaryText>
           </S.ValueStack>
         </Tooltip>
       </S.Cell>
       <S.Cell>
-        <Tooltip content={`Short-term balance: ${formatFullAmount(holding.stcg.balance)}`}>
+        <Tooltip
+          content={`Short-term balance: ${formatFullAmount(holding.stcg.balance)}`}
+        >
           <S.ValueStack>
             <S.GainText $positive={stPositive}>
               {formatSignedCurrency(holding.stcg.gain)}
@@ -144,7 +165,9 @@ const HoldingsTableRow = ({
         </Tooltip>
       </S.Cell>
       <S.Cell>
-        <Tooltip content={`Long-term balance: ${formatFullAmount(holding.ltcg.balance)}`}>
+        <Tooltip
+          content={`Long-term balance: ${formatFullAmount(holding.ltcg.balance)}`}
+        >
           <S.ValueStack>
             <S.GainText $positive={ltPositive}>
               {formatSignedCurrency(holding.ltcg.gain)}
@@ -157,7 +180,9 @@ const HoldingsTableRow = ({
       </S.Cell>
       <S.Cell $alignRight>
         {selected ? (
-          <Tooltip content={`Amount to sell: ${formatFullAmount(holding.totalHolding)}`}>
+          <Tooltip
+            content={`Amount to sell: ${formatFullAmount(holding.totalHolding)}`}
+          >
             <S.RightValueStack>
               <S.AmountText $active>
                 {formatCompactAmount(holding.totalHolding)} {holding.coin}
@@ -181,7 +206,7 @@ export const HoldingsTable = ({
 }: IHoldingsTable) => {
   const { showAllRows, setShowAllRows, sortField, sortDirection, toggleSort } =
     useTaxHarvestingUI();
-    
+
   const sortedHoldings = useMemo(() => {
     const items = holdings.map((holding, index) => ({ holding, index }));
     if (!sortField || !sortDirection) return items;
@@ -196,7 +221,7 @@ export const HoldingsTable = ({
   const visibleHoldings = showAllRows
     ? sortedHoldings
     : sortedHoldings.slice(0, DEFAULT_VISIBLE_ROWS);
-    
+
   const allSelected =
     holdings.length > 0 && selectedHoldingIds.length === holdings.length;
 
@@ -204,7 +229,9 @@ export const HoldingsTable = ({
     <S.Section>
       <S.SectionHeader>
         <S.Title>{TEXTS.table.title}</S.Title>
-        <S.CountBadge>{selectedHoldingIds.length} {TEXTS.table.selected}</S.CountBadge>
+        <S.CountBadge>
+          {selectedHoldingIds.length} {TEXTS.table.selected}
+        </S.CountBadge>
       </S.SectionHeader>
 
       <S.TableShell>
@@ -231,7 +258,9 @@ export const HoldingsTable = ({
                 key={makeHoldingId(holding, index)}
                 holding={holding}
                 holdingId={makeHoldingId(holding, index)}
-                selected={selectedHoldingIds.includes(makeHoldingId(holding, index))}
+                selected={selectedHoldingIds.includes(
+                  makeHoldingId(holding, index),
+                )}
                 onToggleHolding={onToggleHolding}
               />
             ))}
@@ -241,7 +270,10 @@ export const HoldingsTable = ({
 
       {holdings.length > DEFAULT_VISIBLE_ROWS ? (
         <S.Footer>
-          <S.ViewAllButton type="button" onClick={() => setShowAllRows((prev) => !prev)}>
+          <S.ViewAllButton
+            type="button"
+            onClick={() => setShowAllRows((prev) => !prev)}
+          >
             {showAllRows ? TEXTS.table.viewLess : TEXTS.table.viewAll}
           </S.ViewAllButton>
         </S.Footer>

@@ -1,3 +1,10 @@
+/* 
+© 2026 Aravinth Raj R. All rights reserved.
+Unauthorized copying of this file, via any medium, is strictly prohibited.
+Proprietary and confidential.  
+Written by Aravinth Raj R <aravinthr235@gmail.com>, 2026.
+*/
+
 import styled from "styled-components";
 
 export const TooltipBubble = styled.div`
@@ -16,7 +23,9 @@ export const TooltipBubble = styled.div`
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
   z-index: 999;
   pointer-events: none;
 
@@ -44,8 +53,7 @@ export const TooltipWrapper = styled.div`
   cursor: default;
   flex: none;
 
-  &:hover > ${TooltipBubble},
-  &:focus-within > ${TooltipBubble} {
+  &:hover > ${TooltipBubble}, &:focus-within > ${TooltipBubble} {
     opacity: 1;
     visibility: visible;
     transform: translate(-50%, -3px);
