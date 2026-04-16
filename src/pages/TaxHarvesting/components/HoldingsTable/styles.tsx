@@ -125,7 +125,14 @@ export const Cell = styled.td<{ $alignRight?: boolean }>`
   color: ${(props) => props.theme.colors.textPrimary};
   vertical-align: top;
   text-align: ${(props) => (props.$alignRight ? "right" : "left")};
-  overflow: visible;
+
+  text-overflow: ellipsis; // ✅ adds ...
+  white-space: nowrap; // ✅ keeps in one line
+
+  max-width: 200px; // ✅ IMPORTANT (forces wrapping/truncation)
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 `;
 
 export const Checkbox = styled.input`
@@ -143,6 +150,8 @@ export const AssetCell = styled.div`
 `;
 
 export const Logo = styled.img`
+  display: block;
+  flex-shrink: 0;
   width: 28px;
   height: 28px;
   border-radius: 50%;
@@ -155,9 +164,9 @@ export const PrimaryText = styled.div`
   font-size: 14px;
   font-weight: 600;
   line-height: 1.2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 `;
 
 export const SecondaryText = styled.div`
@@ -165,9 +174,9 @@ export const SecondaryText = styled.div`
   font-size: 11px;
   margin-top: 3px;
   line-height: 1.3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 `;
 
 export const GainText = styled.div<{ $positive: boolean }>`

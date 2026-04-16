@@ -115,7 +115,14 @@ const HoldingsTableRow = ({
       </S.Cell>
       <S.Cell>
         <S.AssetCell>
-          <S.Logo src={holding.logo} alt={holding.coinName} />
+          <S.Logo
+            src={holding.logo}
+            alt={holding.coinName}
+            onError={(event) => {
+              event.currentTarget.onerror = null;
+              event.currentTarget.src = "/coin-placeholder.svg";
+            }}
+          />
           <div>
             <S.PrimaryText>{holding.coinName}</S.PrimaryText>
             <S.SecondaryText>{holding.coin}</S.SecondaryText>
