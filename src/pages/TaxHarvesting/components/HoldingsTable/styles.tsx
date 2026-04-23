@@ -132,7 +132,6 @@ export const Cell = styled.td<{ $alignRight?: boolean }>`
   white-space: normal;
   overflow-wrap: break-word;
   word-break: break-word;
-  overflow: hidden;
 `;
 
 export const Checkbox = styled.input`
