@@ -35,7 +35,11 @@ export const CountBadge = styled.span`
 
 export const TableShell = styled.div`
   width: 100%;
-  overflow-x: auto;
+  overflow-y: hidden;
+
+  @media (max-width: 768px) {
+    overflow-x: auto;
+  }
 `;
 
 export const Table = styled.table`
@@ -125,14 +129,10 @@ export const Cell = styled.td<{ $alignRight?: boolean }>`
   color: ${(props) => props.theme.colors.textPrimary};
   vertical-align: top;
   text-align: ${(props) => (props.$alignRight ? "right" : "left")};
-
-  text-overflow: ellipsis; // ✅ adds ...
-  white-space: nowrap; // ✅ keeps in one line
-
-  max-width: 200px; // ✅ IMPORTANT (forces wrapping/truncation)
   white-space: normal;
   overflow-wrap: break-word;
   word-break: break-word;
+  overflow: hidden;
 `;
 
 export const Checkbox = styled.input`
@@ -211,7 +211,9 @@ export const AmountText = styled.span<{ $active: boolean }>`
       : props.theme.colors.textSecondary};
   font-size: 14px;
   cursor: ${(props) => (props.$active ? "help" : "default")};
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: break-word;
 `;
 
 export const Footer = styled.div`
